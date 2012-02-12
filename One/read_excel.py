@@ -1,7 +1,7 @@
 import csv 
 import matplotlib.pyplot as plt 
 
-spamReader = csv.reader(open('data/data_file_1.dat'), delimiter=' ', quotechar='|') 
+spamReader = csv.reader(open('data/data_file_0.dat'), delimiter=' ', quotechar='|') 
 
 xls_list = [] 
 
