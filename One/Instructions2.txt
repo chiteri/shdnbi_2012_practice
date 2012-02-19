@@ -1,0 +1,22 @@
+Hi Martin,
+
+  So sorry to get back to you late. It's been a busy week. 
+
+  Nice work on the plots! That's exactly the right way to make the histogram. 
+
+  Now that you're making the plots, let me give you a bit more information and your next assignment. 
+
+1) These numbers represent the masses of ``something" in the CMS detector. Each file is calculating the mass in one of two different ways. Note that I'm not 
+saying these are the masses of a *particle*. Right now, they are just the masses of something. 
+
+2) The next thing is that you're running into the same problem that we run into in our data....sometimes there's a problem with the detector or electronics, 
+and we get numbers out that just don't make sense. So let me give you a clue, numbers greater than about 100.0 are not valid. So set up the histogram, 
+so the range is from 0 to 100. You may also want to change the number of bins if you like. That may or may not emphasize different features in the data. 
+
+   When you have done this, I believe we will start to see things in the data that we can talk about and I will then tell you more about these data.  :)
+
+   Your guess about the Higgs is a good one! But, I'm afraid to disappoint, that is not it. It's not quite _that_ easy!  :)
+
+   Talk to you soon. 
+
+Matt

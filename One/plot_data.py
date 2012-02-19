@@ -14,11 +14,17 @@ data_list.sort() # Order the items in the list
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-plt.hist(data_list, 50, normed=1, facecolor='g', alpha=0.75) 
+bins = plt.hist(data_list, 50, normed=1, facecolor='g', alpha=0.75, range=(0.0, 100.0)) 
+
+# get the corners of the rectangles for the histogram
+#left = np.array(bins[:-1])
+#right = np.array(bins[1:])
+#bottom = np.zeros(len(left))
+#top = bottom + n 
 
 plt.xlabel('Range of data values')
 plt.ylabel('Frequency of the values')
-plt.title('PLOT OF SECOND CMS DATA')
+plt.title('PLOT OF SECOND CMS DATA SET')
 
 plt.grid(True)
 
