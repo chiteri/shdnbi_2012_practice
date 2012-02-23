@@ -4,7 +4,7 @@ import numpy as np
 data_list = [] # Create a list data type to hold the data from input files 
 
 # Open the files and read their contents
-with open('../data/data_file_1.dat', 'r' ) as file:
+with open('../data/data_file_0.dat', 'r' ) as file:
     for line in file: # Read the data obtained line by line 
         data_list.append(float(line))  # And convert them to their floating point equivalents
 
