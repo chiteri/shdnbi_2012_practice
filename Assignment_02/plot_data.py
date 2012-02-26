@@ -6,8 +6,8 @@ def draw_plots( data_file):
     data_list = [] # A list data type to hold data from an input file 
     # data_list1 = [] # A list data type to hold data from second input file 
 
-    j_psi_percentile = 3.1 / 100 # The percentage of mass of the J/psi particles plotted 
-    upsilon_percentile = 90 / 100 # The percentage of mass of the J/psi particles plotted 
+    j_psi_percentile = (3.1 / 4.0) # The percentage of mass of the J/psi particles plotted 
+    upsilon_percentile = (4.0 - 3.1) / 4.0# The percentage of mass of the J/psi particles plotted 
 
     # Open the first file and read its content
     with open(data_file, 'r' ) as file:
@@ -20,7 +20,7 @@ def draw_plots( data_file):
     # Draw a hisotgram with their data values of the first file
     fig, ax = plt.subplots(1,1,1)
 
-    counts, bins, patches = plt.hist(data_list, 50, normed=1, facecolor='yellow', edgecolor='gray', alpha=0.75, range=(0.0, 100.0)) 
+    counts, bins, patches = plt.hist(data_list, 50, normed=1, facecolor='yellow', edgecolor='gray', alpha=0.75, range=(2.0, 4.0)) 
 
     # Set the ticks to be at the edges of the bins.
     ax.set_xticks(bins)
