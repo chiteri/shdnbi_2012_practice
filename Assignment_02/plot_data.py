@@ -21,7 +21,6 @@ def draw_plots( data_file, main_particle_mass, range_minimum, range_maximum, nbi
     plt.title('Calculations of J / Psi\'s Mass (GeV / c$^2$) using Special Relativity (Einstein\'s equations)')
 
     ax.set_ylim(bottom=0.0)
-    # using Classical mechanics (Newton\'s method)
 
     plt.grid(True)
 
