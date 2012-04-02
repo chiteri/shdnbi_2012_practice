@@ -1,8 +1,6 @@
 Hi Martin,
 
-  So sorry I've been out of touch. This spring was busy. I was interviewing for jobs and was offered a professor position (I am currently a research associate, similar to a post-doc) at Siena College, a small school about 3 hours drive north of New York City. I'll be doing more teaching and continuing my research. My wife is a planetary scientist so we were looking for jobs for her as well in that area and we found her a research position at Rensselaer Polytechnic Institute where we met in grad school, and about 10 minutes from Siena. It's been a very busy, but very exciting month! 
-
-    I looked at all the plots you put on Facebook and they look great! That's exactly how we do research, looking for these ``bumps". Sometimes, the analysis is more sophisticated, but to first order, you've done an analysis!
+It's been a very busy, but very exciting month! I looked at all the plots you put on Facebook and they look great! That's exactly how we do research, looking for these ``bumps". Sometimes, the analysis is more sophisticated, but to first order, you've done an analysis!
 
    Now, let's get a bit more real....   :)
 
