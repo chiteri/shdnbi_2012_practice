@@ -46,6 +46,19 @@ m^2  =  E^2  -   p^2
 
    Trust me, this is always a bit tricky. I've messed this up myself before. So give it a shot, and if it's not working, I can always check out your github code and see if I can help.
 
+Yes! Also, there is one other thing I forgot to mention....
+
+By adding the electrical charges of the two muons together, you can
+find the electric charge of the parent particle. For instance two mu+
+particles would make a particle with twice the charge of the standard
+electron (++). However, we know of no particles with that electric
+charge. But if you were to add two muons that have opposite charges
+(+-), you would get a neutral particle with no electric charge. If you
+make a separate histogram with ++ combinations, -- combinations, and +-
+combinations, you can see what the charge is of the J/Psi, Upsilons,
+and Z particles. You might also see some of them even more clearly in
+these combinations. 
+
    
     At this point, I think it's worth thinking about what you want to do for Science Hack Day Nairobi in a couple of weeks. We've gone through quite a bit of learning, both physics and coding, so maybe there's something there. You're going to be the local expert, so what would you like to do? Maybe there's a website that you and the others can put together that walks people through the same exercises that we went through? Or maybe you want to do some other visualizations of the data? I'm not sure....it's your party!  :)
 
