@@ -2,14 +2,18 @@ import argparse
 
 def determine_mass(data_file): 
     # Open the first file and read its content 
-    with open(data_file, 'r' ) as file: 
-        for daughters in file: # Read the data obtained line by line 
-            no_of_particles = int(daughters) # The first line represents the number of particles to expect in subsequent events
+    with open(data_file, 'r' ) as file: 	
+        for particle_details in file: # Read the data obtained line by line 
+            values = particle_details.split() # The first item can tell us if we are looking at daughter particles or four momentum values
+			
+            if len( values ) == 1: # We expect single digit (1, 2 ... 9, 2 mostly) daughter particles from decays 
+                daughter_particles = int(values[0]) # The first line represents the number of particles to expect in subsequent events
 	   
-            for particle in range(1, no_of_particles): # Loop through the number of particles detected in the decay 
-                energy, px, py, pz, charge = daughters.split( " " ) # Unpack the list. Get the four momentum data 
+            elif len( values ) > 1: 
+                # particle in range(1, daughter_particles): # Loop through the number of particles detected in the decay 
+                energy, px, py, pz, charge = values[0], values[1], values[2], values[3],  values[4] # Unpack the list. Get the four momentum data 
                 print energy, px, py, pz, charge 
-                mass = invariant_mass(energy, px, py, pz, charge)
+                # mass = invariant_mass(energy, px, py, pz, charge)
 			
 ################################################################################
 # Calculate the invariant mass according to the theory of special relativity
