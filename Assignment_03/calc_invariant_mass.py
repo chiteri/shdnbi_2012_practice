@@ -5,7 +5,10 @@ def determine_mass(data_file):
 	
     # Open the first file and read its content 
     # Format the headings for the data before display 
-    print repr('Energy').ljust(7), repr('X-coord').ljust(7), repr('Y-coord').ljust(7), repr('Z-coord').ljust(7), repr('Charge').ljust(7)
+    print repr('Energy').ljust(7), repr('X-coord').ljust(7), repr('Y-coord').ljust(7), repr('Z-coord').ljust(7), repr('Charge').ljust(7) 
+    
+    print repr('++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7)
+    
     with open(data_file, 'r' ) as file: 	
         for particle_details in file: # Read the data obtained line by line 
             values = particle_details.split() # The first item can tell us if we are looking at daughter particles or four momentum values
