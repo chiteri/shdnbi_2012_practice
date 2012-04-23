@@ -23,7 +23,7 @@ def determine_mass(data_file):
 			
             if len( values[0] ) == 1: # We expect single digit (1, 2 ... 9, 2 mostly) daughter particles from decays 
                 daughter_particles = int(values[0]) # The first line represents the number of particles to expect in subsequent events for the decay
-	   
+
             elif len( values[0] ) > 1: 
                 for n in range (0, daughter_particles): 
                     # print 'Hello World!!'
@@ -42,11 +42,13 @@ def determine_mass(data_file):
 ################################################################################
 def calc_invariant_mass(E, px, py, pz, number_of_events):	
     mass = 0.00 
-    for n in range (1, number_of_events ):  
+    
+    for n in range (0, number_of_events ): 
         mass  = E[n]**2
         mass -= px[n]**2
         mass -= py[n]**2
-        mass -= pz[n]**2  
+        mass -= pz[n]**2
+	break # Force the program to iterate to the next loop, stop execution temporarily
 		
     return np.sqrt(mass)
 			
