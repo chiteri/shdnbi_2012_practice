@@ -1,39 +1,53 @@
-import argparse
+import numpy as np
+import argparse 
 
-def determine_mass(data_file): 
-    daughter_particles = 0 # How many particles were in event 
-	
-    # Open the first file and read its content 
+def determine_mass(data_file): 	 
     # Format the headings for the data before display 
-    print repr('Energy').ljust(7), repr('X-coord').ljust(7), repr('Y-coord').ljust(7), repr('Z-coord').ljust(7), repr('Charge').ljust(7) 
-    
-    print repr('++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7)
-    
-    with open(data_file, 'r' ) as file: 	
+    print repr('Energy').ljust(7), repr('X-coord').ljust(7), repr('Y-coord').ljust(7), repr('Z-coord').ljust(7), repr('Charge').ljust(7), repr('Invariant Mass').ljust(20)      
+    print repr('++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7), repr('+++++++').ljust(7), repr('++++++').ljust(6), repr('++++++++++++++').ljust(13)
+	
+    # Open the first file and read its content    
+    with open(data_file, 'r' ) as file: 		
         for particle_details in file: # Read the data obtained line by line 
-            values = particle_details.split() # The first item can tell us if we are looking at daughter particles or four momentum values
+            values = particle_details.split() # The first item can tell us if we are looking at daughter particles or four momentum values  
 			
-            if len( values ) == 1: # We expect single digit (1, 2 ... 9, 2 mostly) daughter particles from decays 
-                daughter_particles = int(values[0]) # The first line represents the number of particles to expect in subsequent events
+            # Four momentum information for an event. Use lists with lengths equal to the number of daughter particles 
+            energy = [0.00]*len( values[0] ) # An empty list to hold the values of e
+            x_coord = [0.00]*len( values[0] ) # An empty list to hold the values of px
+            y_coord = [0.00]*len( values[0] ) # An empty list to hold the values of py
+            z_coord = [0.00]*len( values[0] ) # An empty list to hold the values of pz
+            charge = [0.0]*len( values[0] ) # An empty list to hold the values of q
+			
+            invariant_mass = 0.00 # The invariant mass for each parent particle  
+            # daughter_particles = 0 
+			
+            if len( values[0] ) == 1: # We expect single digit (1, 2 ... 9, 2 mostly) daughter particles from decays 
+                daughter_particles = int(values[0]) # The first line represents the number of particles to expect in subsequent events for the decay
 	   
-            elif len( values ) > 1: 
+            elif len( values[0] ) > 1: 
                 for n in range (0, daughter_particles): 
-                    # Unpack the list. Get the four momentum data 
-                    energy, px, py, pz, charge = float(values[0]), float(values[1]), float(values[2]), float(values[3]),  int(values[4]) 
-                    # mass = invariant_mass( energy, px, py, pz ) 					
-                    print repr(energy).rjust(8), repr(px).rjust(8), repr(py).rjust(8), repr(pz).rjust(8), repr(charge).rjust(8) 
-                    break # Temporarily stop execution, force the program to go to the next loop iteration  
+                    # print 'Hello World!!'
+                    # Get the four momentum data from the list 
+                    energy[n], x_coord[n], y_coord[n], z_coord[n], charge[n] = float(values[0]), float(values[1]), float(values[2]), float(values[3]),  int(values[4])  			
+                    print repr(energy[n]).rjust(8), repr(x_coord[n]).rjust(8), repr(y_coord[n]).rjust(8), repr(z_coord[n]).rjust(8), repr(charge[n]).rjust(8), 
+                    break # Temporarily stop execution, force the program to go to the next outer loop iteration 
+	
+                invariant_mass = calc_invariant_mass( energy, x_coord, y_coord, z_coord, daughter_particles ) 					
+                print repr(invariant_mass).rjust(13)	
+						
+
 			
 ################################################################################
 # Calculate the invariant mass according to the theory of special relativity
 ################################################################################
-def invariant_mass(E, px, py, pz):
-    # mass  = (E[0]+E[1])**2
-    # mass -= (px[0]+px[1])**2
-    # mass -= (py[0]+py[1])**2
-    # mass -= (pz[0]+pz[1])**2  
-    mass  = (E[0]+E[1])**2
-
+def calc_invariant_mass(E, px, py, pz, number_of_events):	
+    mass = 0.00 
+    for n in range (1, number_of_events ):  
+        mass  = E[n]**2
+        mass -= px[n]**2
+        mass -= py[n]**2
+        mass -= pz[n]**2  
+		
     return np.sqrt(mass)
 			
 if __name__ == "__main__": 
