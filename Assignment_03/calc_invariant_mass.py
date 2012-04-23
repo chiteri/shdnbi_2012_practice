@@ -1,5 +1,5 @@
-import numpy as np
-# from math import sqrt 
+# import numpy as np
+from math import sqrt 
 import argparse 
 
 def determine_mass(data_file): 	 
@@ -46,8 +46,11 @@ def calc_invariant_mass(E, px, py, pz, number_of_events):
         energies  += E[n]
         coordinates += px[n] + py[n] + pz [n]
         break # Force the program to iterate to the next loop, stop execution temporarily
-
-    return np.sqrt(energies**2 - coordinates**2) # Return the root of the value obtained
+    
+    try:
+        return sqrt(energies**2 - coordinates**2) # Return the root of the value obtained
+    except ValueError: 
+	return 'Houston, we have an issue!'
 			
 if __name__ == "__main__": 
     parser = argparse.ArgumentParser(description='Calculate the invariant mass of parent particles after a decay into muons in a p-p collision.') 
