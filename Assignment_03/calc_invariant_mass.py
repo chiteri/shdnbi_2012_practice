@@ -40,17 +40,19 @@ def determine_mass(data_file):
 # Calculate the invariant mass according to the theory of special relativity
 ################################################################################
 def calc_invariant_mass(E, px, py, pz, number_of_events):	
-    energies, coordinates =  0.00, 0.00 
+    energies = px_sum = py_sum = pz_sum =  0.00 
     
     for n in range (0, number_of_events ): 
         energies  += E[n]
-        coordinates += px[n] + py[n] + pz [n]
+        px_sum += px[n] 
+	py_sum += py[n] 
+	pz_sum += pz [n]
         break # Force the program to iterate to the next loop, stop execution temporarily
     
     try:
-        return sqrt(energies**2 - coordinates**2) # Return the root of the value obtained
+        return sqrt( energies**2 - (px_sum**2 + py_sum**2 + pz_sum**2) ) # Return the root of the value obtained
     except ValueError: 
-	return 'Houston, we have an issue!'
+	return 'Houston, we have a problem!'
 			
 if __name__ == "__main__": 
     parser = argparse.ArgumentParser(description='Calculate the invariant mass of parent particles after a decay into muons in a p-p collision.') 
