@@ -50,7 +50,7 @@ def calc_invariant_mass(E, px, py, pz, number_of_events):
         break # Force the program to iterate to the next loop, stop execution temporarily
     
     try:
-        return sqrt( energies**2 - (px_sum**2 + py_sum**2 + pz_sum**2) ) # Return the root of the value obtained
+        return sqrt( energies**2 - (px_sum + py_sum + pz_sum)**2 ) # Return the root of the value obtained
     except ValueError: 
 	return 'Houston, we have a problem!'
 			
