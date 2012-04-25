@@ -27,7 +27,6 @@ def determine_mass(data_file):
  
             elif len( values[0] ) > 1: 
                 for n in range (0, daughter_particles): 
-                    # print 'Hello World!!'
                     # Get the four momentum data from the list 
                     energy[n], x_coord[n], y_coord[n], z_coord[n], charge[n] = float(values[0]), float(values[1]), float(values[2]), float(values[3]),  int(values[4])  			
                     print repr(energy[n]).rjust(8), repr(x_coord[n]).rjust(8), repr(y_coord[n]).rjust(8), repr(z_coord[n]).rjust(8), repr(charge[n]).rjust(8), 
@@ -45,12 +44,12 @@ def calc_invariant_mass(E, px, py, pz, number_of_events):
     for n in range (0, number_of_events ): 
         energies  += E[n]
         px_sum += px[n] 
-	py_sum += py[n] 
-	pz_sum += pz [n]
+        py_sum += py[n] 
+        pz_sum += pz [n]
         break # Force the program to iterate to the next loop, stop execution temporarily
     
     try:
-        return sqrt( energies**2 - (px_sum + py_sum + pz_sum)**2 ) # Return the root of the value obtained
+        return sqrt( energies**2 - (px_sum**2 + py_sum**2 + pz_sum**2) ) # Return the root of the value obtained
     except ValueError: 
 	return 'Houston, we have a problem!'
 			
